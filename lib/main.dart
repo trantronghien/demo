@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'keys.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -31,11 +33,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
+  
   void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+    List<String> attributes = ['A', 'B', 'C'];
+    String fdString = "A,B->C,D; D,E-> C,E; C,D-> A,E; D,E-> A,B; D->E";
+    final fds = stringToFds(fdString);
+
+    Set<String> decompose = decomposeSet(attributes);
+    // print(decompose.join('\n'));
+    // Tính bao đóng của tập
+    Set<String> closureOfR = closure(attributes, fds, decompose);
+    print('Closure of R: $closureOfR');
   }
 
   @override
