@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/algorithm.dart';
+import 'package:untitled/model/attributes.dart';
 
 import 'keys.dart';
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  _incrementCounter();
+}
+
+void _incrementCounter() {
+  // List<Attributes> relation = Attributes.stringToAttributes('A, B, C, D, E').toList();
+  // // String fdString = "A,B->C,D; D,E-> C,E; C,D-> A,E; D,E-> A,B; D->E";
+  // String fdString = "B-> D; A->B; C-> B";
+  // final fds = stringToFds(fdString);
+  //
+  // Set<Set<Attributes>> decompose = decomposeSet(Attributes.attributesToListString(relation));
+  // // print(decompose.join('\n'));
+  //
+  // // print(decompose.first);
+  // // Tính bao đóng của tập
+  // // Set<String> closureOfR = closure(relation, fds, decompose);
+  // final result = closureOfSet(fds, [Attributes.of('A')]);
+  // print('Closure of R: ${result.join(',')}'); // ABD
 }
 
 class MyApp extends StatelessWidget {
@@ -35,19 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   
   void _incrementCounter() {
-    List<String> attributes = ['A', 'B', 'C'];
-    String fdString = "A,B->C,D; D,E-> C,E; C,D-> A,E; D,E-> A,B; D->E";
-    final fds = stringToFds(fdString);
-
-    Set<String> decompose = decomposeSet(attributes);
-    // print(decompose.join('\n'));
-    // Tính bao đóng của tập
-    Set<String> closureOfR = closure(attributes, fds, decompose);
-    print('Closure of R: $closureOfR');
   }
 
   @override
   Widget build(BuildContext context) {
+    _incrementCounter();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -58,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Check ac',
             ),
             Text(
               '$_counter',
